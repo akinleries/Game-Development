@@ -22,6 +22,12 @@ public class DeckOfCard {
     }
 
     public Card pop() {
-        return cards[0];
+        if (isEmpty()) throw new StackUnderflowException("Card stack is empty");
+     return cards[lastPushLocation--];
+
+    }
+
+    public boolean isEmpty() {
+        return lastPushLocation == -1;
     }
 }
